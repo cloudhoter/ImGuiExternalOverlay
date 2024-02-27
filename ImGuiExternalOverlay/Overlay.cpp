@@ -248,7 +248,7 @@ BOOL Overlay::AttachInit(HWND Target, std::string WindowName, std::string ClassN
     SetWindowLongPtr(hSelfWindow, GWL_EXSTYLE, GetWindowLongPtr(hSelfWindow, GWL_EXSTYLE) | WS_EX_LAYERED | WS_EX_TRANSPARENT);
     SetLayeredWindowAttributes(hSelfWindow, 0, 255, LWA_ALPHA);
     const MARGINS margin = { -1, 0, 0, 0 };
-    if(DwmExtendFrameIntoClientArea(hSelfWindow, &margin) != S_OK)
+    if (DwmExtendFrameIntoClientArea(hSelfWindow, &margin) != S_OK)
         return FALSE;
 
     if (!CreateDeviceD3D(hSelfWindow))
@@ -258,10 +258,8 @@ BOOL Overlay::AttachInit(HWND Target, std::string WindowName, std::string ClassN
         return FALSE;
     }
 
-    if (!::ShowWindow(hSelfWindow, SW_SHOWDEFAULT))
-        return FALSE;
-    if (!::UpdateWindow(hSelfWindow))
-        return FALSE;
+    ::ShowWindow(hSelfWindow, SW_SHOWDEFAULT);
+    ::UpdateWindow(hSelfWindow);
 
     Type = WindowType::AttachWindow;
 
