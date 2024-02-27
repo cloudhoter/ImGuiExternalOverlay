@@ -8,7 +8,7 @@ void Drawing()
 {
     if (showMenu)
     {
-        ImGui::Begin(u8"code by flowers");
+        ImGui::Begin(u8"code by cloudhoter");
 
         ImGui::Text(u8"菜单显示的时候无法操作其它程序");
         ImGui::Text(u8"Ins开关菜单");
